@@ -24,7 +24,7 @@
             display: flex; justify-content: center; align-items: center;
         }
 
-        /* 🎬 ENTRANCE OVERLAY (To enable Audio) */
+        /* 🎭 ENTRANCE OVERLAY */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--green); z-index: 9999;
@@ -37,7 +37,6 @@
             cursor: pointer; font-size: 1.2rem; letter-spacing: 2px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
         }
-        #enter-btn:hover { transform: scale(1.1); }
 
         /* 🎵 MUSIC TOGGLE */
         #music-toggle {
@@ -64,6 +63,8 @@
             background: var(--cream); width: 92%; max-width: 550px; padding: 50px 20px;
             text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
             position: relative; z-index: 10; margin: 40px auto;
+            
+            /* 🖼️ BORDER (Looking for image.png in the same folder) */
             border: 25px solid transparent;
             border-image-source: url('image.png');
             border-image-slice: 45; border-image-repeat: round;
@@ -73,8 +74,11 @@
         .mantra { color: var(--green); font-weight: 700; font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 30px; text-transform: uppercase; }
         .hero-text h1 { font-family: var(--font-header); color: var(--gold); font-size: clamp(28px, 8vw, 42px); margin: 5px 0; }
         .hero-text h2 { font-family: var(--font-accent); font-size: 2.5rem; color: var(--green); margin: -10px 0; }
+        
+        /* HERO IMAGE */
         .hero-img { width: 210px; border-radius: 105px 105px 0 0; border: 3px solid var(--gold); padding: 5px; margin: 25px 0; background: white; }
 
+        /* COUNTDOWN */
         .date-section { background: var(--green); color: white; margin: 40px -20px; padding: 35px 10px; box-shadow: inset 0 0 30px rgba(0,0,0,0.4); }
         .big-date { font-family: var(--font-header); font-size: clamp(22px, 5vw, 32px); color: var(--gold); margin-bottom: 15px; }
         .countdown { display: flex; justify-content: center; gap: 10px; }
@@ -82,13 +86,16 @@
         .box span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--gold); }
         .box-label { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
 
+        /* EVENTS */
         .event { margin-top: 50px; }
         .event-img { width: 85%; max-width: 380px; height: 220px; object-fit: cover; border-radius: 15px 15px 0 0; border: 2px solid var(--gold); border-bottom: none; }
         .event-details { background: white; width: 85%; margin: -5px auto 0; padding: 20px 10px; border: 2px solid var(--gold); border-radius: 0 0 15px 15px; }
         .event h3 { color: var(--gold); font-family: var(--font-header); font-size: 1.1rem; margin: 0 0 10px; }
 
-        .btn { display: inline-block; background: var(--gold); padding: 14px 40px; border-radius: 50px; color: white; text-decoration: none; font-weight: bold; margin: 40px 0; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
+        /* BUTTON */
+        .btn { display: inline-block; background: var(--gold); padding: 14px 40px; border-radius: 50px; color: white; text-decoration: none; font-weight: bold; margin: 50px 0; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
         
+        /* BLESSINGS */
         .blessings-container { margin-top: 50px; border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 30px; }
         .blessings-title { font-family: var(--font-accent); font-size: 2.2rem; color: var(--green); margin-bottom: 15px; }
         .blessings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 10px; }
@@ -153,7 +160,7 @@
                 </div>
             </div>
 
-            <a href="https://maps.google.com" target="_blank" class="btn">View Location Map</a>
+            <a href="http://googleusercontent.com/maps.google.com/Final" target="_blank" class="btn">View Location Map</a>
 
             <div class="blessings-container">
                 <div class="blessings-title">With Blessings</div>
@@ -174,7 +181,6 @@
         const container = document.getElementById("invitation-container");
         const overlay = document.getElementById("overlay");
 
-        /* 🎬 START INVITATION & MUSIC */
         function startInvitation() {
             overlay.style.opacity = "0";
             setTimeout(() => {
@@ -183,7 +189,7 @@
                 container.style.transform = "translateY(0)";
                 toggle.style.display = "flex";
                 toggle.classList.add("playing");
-                audio.play(); // This now works because the user clicked the button
+                audio.play(); 
             }, 1000);
         }
 
@@ -199,7 +205,6 @@
             }
         }
 
-        /* 🌸 PETALS */
         for(let i=0; i<18; i++){
             let f = document.createElement("div");
             f.className = "flower"; f.innerHTML = "🌸";
@@ -208,7 +213,6 @@
             document.body.appendChild(f);
         }
 
-        /* ⏳ COUNTDOWN */
         const target = new Date("May 3, 2026 19:35:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
